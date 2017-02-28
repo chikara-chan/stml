@@ -1,5 +1,5 @@
 {
-  "name": "gud",
+  "name": "sed",
   "description": "Lightweight JavaScript template engine.",
   "version": "1.0.0",
   "keywords": [
@@ -26,10 +26,10 @@
     "eslint-config-invincible": "^1.0.2"
   },
   "author": "Chikara Chan",
-  "homepage": "https://github.com/chikara-chan/pux",
+  "homepage": "https://github.com/chikara-chan/sed",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chikara-chan/pux.git"
+    "url": "https://github.com/chikara-chan/sed.git"
   },
   "license": "MIT"
 }
