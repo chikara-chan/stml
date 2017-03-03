@@ -18,7 +18,8 @@
     "test": "mocha --compilers js:babel-register --recursive",
     "test:watch": "npm run test -- --watch",
     "test:cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- --compilers js:babel-register --recursive",
-    "test:report": "coveralls < ./coverage/lcov.info"
+    "test:report": "coveralls < ./coverage/lcov.info",
+    "clean": "rimraf lib coverage"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -33,7 +34,8 @@
     "eslint": "^3.16.1",
     "eslint-config-invincible": "^1.1.1",
     "istanbul": "1.1.0-alpha.1",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "rimraf": "^2.6.1"
   },
   "author": "Chikara Chan",
   "homepage": "https://github.com/chikara-chan/stml",
