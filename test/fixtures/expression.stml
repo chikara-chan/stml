@@ -1,0 +1,13 @@
+<body>
+  <div>{name}</div>
+  <div>{ name }</div>
+  <div>{ entries[0] }</div>
+  <div>{}</div>
+  <div>{ }</div>
+  <div>{ '' }</div>
+  <div>{ null }</div>
+  <div>{ 1 }</div>
+  <div>{ true }</div>
+  <div>{ '<script></script>' }</div>
+  <div>{- '<script></script>' }</div>
+</body>

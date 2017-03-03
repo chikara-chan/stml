@@ -1,0 +1,3 @@
+<nav>
+  <%extends 'block.stml'%>
+</nav>

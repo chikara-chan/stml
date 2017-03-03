@@ -1,0 +1,7 @@
+<% if (entries.length) { %>
+  <ul>
+    <% entries.forEach(function(entry){ %>
+      <li>{ entry }</li>
+    <% }) %>
+  </ul>
+<% } %>
