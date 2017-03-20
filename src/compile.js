@@ -10,18 +10,19 @@ import helpers from './helpers'
  * @return {Function}
  */
 function compile(str, opts = {}) {
-  let fn, ret
+  let fn
 
   str = parse(str, opts)
   try {
     fn = new Function('locals', 'escapeHTML', str)
-    ret = fn(opts.locals, helpers.escapeHTML)
   } catch (e) {
     invariant(e.name !== 'SyntaxError', 'an error occured when compiling')
     throw e
   }
 
-  return ret
+  return function(locals) {
+    return fn(locals, helpers.escapeHTML)
+  }
 }
 
 export default compile

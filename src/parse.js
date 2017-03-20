@@ -1,6 +1,5 @@
-import {invariant} from 'invincible'
-import path from 'path'
-import fs from 'fs'
+import {assert} from 'invincible'
+import parseExtendFile from './parseExtendFile'
 
 const defaultOpts = {
   expressionOpen: '{',
@@ -25,49 +24,43 @@ function parse(str, opts = {}) {
     blockClose = opts.blockClose,
     expressionOpen = opts.expressionOpen,
     expressionClose = opts.expressionClose,
-    filename = opts.filename
-
-  let prefix, suffix, start, end, js, extendFilename, extendFileStr,
     buffer = []
+  let prefix, suffix, start, end, js
 
-  buffer.push('var buf = [];')
-  buffer.push('with (locals || {}) {')
-  buffer.push('buf.push(\'')
+  buffer.push([
+    'var buf = [];',
+    'with (locals || {}) {',
+    'buf.push(\''
+  ].join('\n'))
   for (let i = 0; i < str.length; i++) {
     if (str.slice(i, blockOpen.length + i) === blockOpen) {
       start = i + blockOpen.length
       end = str.indexOf(blockClose, start)
-      invariant(~end, `Could not find blockClose tag \`${blockClose}\`.`)
+      assert(
+        ~end,
+        `could not find blockClose tag \`${blockClose}\`.`
+      )
       prefix = '\');'
       suffix = '; buf.push(\''
       js = str.slice(start, end).trim()
       if (js.match(/^extends\s/)) {
-        invariant(filename,
-          'options `filename` is required for extends')
-        extendFilename = js.slice(7).trim()
-        invariant(extendFilename.match(/^("|').+('|")$/),
-          'extendsFilename must be wrapped with quote for extends')
-        extendFilename = extendFilename.slice(1, -1)
-        extendFileStr = fs.readFileSync(path.resolve(path.dirname(filename), extendFilename), 'utf8')
-        extendFileStr = parse(extendFileStr, {
-          filename: extendFilename,
-          blockOpen,
-          blockClose,
-          expressionOpen,
-          expressionClose
-        })
-        buffer.push(`' + (function(){${extendFileStr}}()) + '`)
+        parseExtendFile(js, buffer, opts)
         i = end + blockClose.length - 1
         continue
       }
-      buffer.push(prefix)
-      buffer.push(js)
-      buffer.push(suffix)
+      buffer.push([
+        prefix,
+        js,
+        suffix
+      ].join(''))
       i = end + blockClose.length - 1
     } else if (str.slice(i, expressionOpen.length + i) === expressionOpen) {
       start = i + expressionOpen.length
       end = str.indexOf(expressionClose, start)
-      invariant(~end, `Could not find expressionClose tag \`${expressionClose}\`.`)
+      assert(
+        ~end,
+        `Could not find expressionClose tag \`${expressionClose}\`.`
+      )
       if (str[start] === '-') {
         prefix = '\', '
         suffix = ', \''
@@ -78,9 +71,11 @@ function parse(str, opts = {}) {
       }
       js = str.slice(start, end).trim()
       if (js) {
-        buffer.push(prefix)
-        buffer.push(js)
-        buffer.push(suffix)
+        buffer.push([
+          prefix,
+          js,
+          suffix
+        ].join(''))
       }
       i = end + expressionClose.length - 1
     } else if (str[i] === '\\') {
@@ -95,7 +90,10 @@ function parse(str, opts = {}) {
       buffer.push(str[i])
     }
   }
-  buffer.push('\')} return buf.join(\'\');')
+  buffer.push([
+    '\')}',
+    'return buf.join(\'\');'
+  ].join('\n'))
 
   return buffer.join('')
 }
