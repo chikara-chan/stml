@@ -1,4 +1,4 @@
-import {invariant} from 'invincible'
+import { invariant } from 'invincible'
 import parse from './parse'
 import helpers from './helpers'
 

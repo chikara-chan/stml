@@ -1,7 +1,7 @@
-import {assert} from 'chai'
+import { assert } from 'chai'
 import fs from 'fs'
 import path from 'path'
-import {render} from '../src'
+import { render } from '../src'
 
 describe('stml spectacular', () => {
   it('should render expression correctly', () => {

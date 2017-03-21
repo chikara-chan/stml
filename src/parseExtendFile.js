@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import {assert} from 'invincible'
+import { assert } from 'invincible'
 import parse from './parse'
 
 /**

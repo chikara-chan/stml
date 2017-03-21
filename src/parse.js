@@ -1,4 +1,4 @@
-import {assert} from 'invincible'
+import { assert } from 'invincible'
 import parseExtendFile from './parseExtendFile'
 
 const defaultOpts = {
