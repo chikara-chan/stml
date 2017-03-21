@@ -46,6 +46,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "invincible": "^1.3.0"
+    "invincible": "^2.0.0"
   }
 }
