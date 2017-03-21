@@ -23,11 +23,30 @@ import path from 'path'
 import stml from 'stml'
 
 const src = fs.readFileSync(path.join(__dirname, 'template.html'))
-const dest = stml.compile(src, {
+const dest = stml.render(src, {
   locals: {
     entries: ['James', 'John', 'Tom']
   },
   filename: path.join(__dirname, 'template.html')
+})
+
+console.log(dest)
+```
+
+**alternate**
+
+``` js
+import fs from 'fs'
+import path from 'path'
+import stml from 'stml'
+
+const src = fs.readFileSync(path.join(__dirname, 'template.html'))
+const compileFn = stml.compile(src, {
+  filename: path.join(__dirname, 'template.html')
+})
+
+compileFn({
+  entries: ['James', 'John', 'Tom']
 })
 
 console.log(dest)
@@ -73,7 +92,6 @@ Use jsp syntax for block statement.
 Use jsp syntax for extends statement.
 ``` html
 <% extends 'header.html' %>
-
 ```
 
 ## License
