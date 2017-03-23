@@ -1,4 +1,4 @@
-import { invariant } from 'invincible'
+import { assert } from 'invincible'
 import parse from './parse'
 import helpers from './helpers'
 
@@ -16,7 +16,7 @@ function compile(str, opts = {}) {
   try {
     fn = new Function('locals', 'escapeHTML', str)
   } catch (e) {
-    invariant(e.name !== 'SyntaxError', 'an error occured when compiling')
+    assert(e.name !== 'SyntaxError', 'an error occured when compiling')
     throw e
   }
 

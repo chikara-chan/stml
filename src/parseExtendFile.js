@@ -6,9 +6,9 @@ import parse from './parse'
 /**
  * Parse the extend file
  *
- * @param  {String} js
- * @param  {Array} buffer
- * @param  {Object} opts
+ * @param {String} js
+ * @param {Array} buffer
+ * @param {Object} opts
  */
 function parseExtendFile(js, buffer, opts) {
   const blockOpen = opts.blockOpen,

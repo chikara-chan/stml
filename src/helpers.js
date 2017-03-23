@@ -1,3 +1,8 @@
+/**
+ * Escape html special charactor.
+ *
+ * @param {String} html
+ */
 function escapeHTML(html) {
   return String(html)
     .replace(/'/g, '&#39;')
