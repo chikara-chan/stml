@@ -1,9 +1,11 @@
+/* @flow */
+
 /**
  * Escape html special charactor.
  *
  * @param {String} html
  */
-function escapeHTML(html) {
+function escapeHTML(html: string): string {
   return String(html)
     .replace(/'/g, '&#39;')
     .replace(/"/g, '&quot;')

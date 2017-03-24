@@ -1,3 +1,5 @@
+/* @flow */
+
 import { assert } from 'invincible'
 import parseExtendFile from './parseExtendFile'
 
@@ -15,7 +17,7 @@ const defaultOpts = {
  * @param {Object} opts
  * @return {String}
  */
-function parse(str, opts = {}) {
+function parse(str: string, opts: Object = {}): string {
   opts = {
     ...defaultOpts, ...opts
   }

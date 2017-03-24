@@ -1,3 +1,5 @@
+/* @flow */
+
 import fs from 'fs'
 import path from 'path'
 import { assert } from 'invincible'
@@ -10,7 +12,7 @@ import parse from './parse'
  * @param {Array} buffer
  * @param {Object} opts
  */
-function parseExtendFile(js, buffer, opts) {
+function parseExtendFile(js: string, buffer: Array<string>, opts: Object): void {
   const blockOpen = opts.blockOpen,
     blockClose = opts.blockClose,
     expressionOpen = opts.expressionOpen,

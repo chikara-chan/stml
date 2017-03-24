@@ -1,3 +1,5 @@
+/* @flow */
+
 import { assert } from 'invincible'
 import parse from './parse'
 import helpers from './helpers'
@@ -9,7 +11,7 @@ import helpers from './helpers'
  * @param {Object} opts
  * @return {Function}
  */
-function compile(str, opts = {}) {
+function compile(str: string, opts: Object = {}): Function {
   let fn
 
   str = parse(str, opts)
@@ -20,7 +22,7 @@ function compile(str, opts = {}) {
     throw e
   }
 
-  return function(locals) {
+  return function(locals: Object) {
     return fn(locals, helpers.escapeHTML)
   }
 }

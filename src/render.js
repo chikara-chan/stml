@@ -1,3 +1,5 @@
+/* @flow */
+
 import compile from './compile'
 
 /**
@@ -7,7 +9,7 @@ import compile from './compile'
  * @param {Object} opts
  * @return {String}
  */
-function render(str, opts = {}) {
+function render(str: string, opts: Object = {}): Function {
   const fn = compile(str, opts)
 
   return fn(opts.locals)
