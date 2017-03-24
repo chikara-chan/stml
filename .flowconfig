@@ -1,0 +1,12 @@
+[ignore]
+.*/test/.*
+.*/docs/.*
+
+[include]
+
+[libs]
+
+[options]
+strip_root=true
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+suppress_comment= \\(.\\|\n\\)*\\$FlowIssue

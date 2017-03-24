@@ -8,6 +8,7 @@ script:
   - npm run clean
   - npm run build
   - npm run lint
+  - npm run flow
   - npm run test:cover
 after_script:
   - npm run test:report
