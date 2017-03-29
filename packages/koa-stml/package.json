@@ -1,0 +1,35 @@
+{
+  "name": "koa-stml",
+  "description": "This package is a middleware which connects koa view engine to stml.",
+  "version": "1.0.0",
+  "keywords": [
+    "template",
+    "engine"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "babel src -d lib"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-register": "^6.23.0"
+  },
+  "author": "Chikara Chan",
+  "homepage": "https://github.com/chikara-chan/stml",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chikara-chan/stml.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "invincible": "^2.0.0"
+  }
+}
