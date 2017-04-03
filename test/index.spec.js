@@ -66,4 +66,15 @@ describe('stml spectacular', () => {
       })
     )
   })
+
+  it('should throw syntax error correctly', () => {
+    const sourceFilename = path.join(__dirname, 'fixtures/mismatch-error.stml'),
+      source = fs.readFileSync(sourceFilename, 'utf-8')
+
+    assert.throws(
+      () => render(source, {
+        filename: sourceFilename
+      })
+    )
+  })
 })
