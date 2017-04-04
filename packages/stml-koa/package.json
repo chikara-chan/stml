@@ -1,5 +1,5 @@
 {
-  "name": "koa-stml",
+  "name": "stml-koa",
   "description": "This package is a middleware which connects koa view engine to stml.",
   "version": "1.0.0",
   "keywords": [

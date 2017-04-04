@@ -8,7 +8,7 @@ const defaults = {
 }
 
 /**
- * Render template
+ * Render with options by filename
  *
  * @param  {String} view - filename
  * @param  {Object} opts
@@ -18,7 +18,7 @@ async function renderHTML(view, opts) {
   view += opts.ext
 
   const viewPath = resolve(opts.root, view),
-    src = await fs.readFile(viewPath, 'utf8'),
+    src = await fs.readFile(viewPath, 'utf-8'),
     dest = render(src, {
       filename: viewPath,
       locals: opts.locals

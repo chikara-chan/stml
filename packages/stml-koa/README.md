@@ -1,4 +1,4 @@
-# Koa STML
+# stml-koa
 
 This package is a middleware which connects koa view engine to stml.
 
@@ -13,7 +13,7 @@ $ yarn add koa-stml
 ## Usage
 
 ``` js
-var render = require('koa-stml')
+var render = require('stml-koa')
 
 render(app, {
   ext: 'html'
