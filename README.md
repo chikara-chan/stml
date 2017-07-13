@@ -11,8 +11,6 @@ Lightweight JavaScript template engine for better cleaner code.
 
 ``` bash
 $ npm install stml
-# Or
-$ yarn add stml
 ```
 
 ## Usage
