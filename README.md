@@ -74,6 +74,7 @@ Use jsx syntax for expression statement.
 #### block statement
 
 Use jsp syntax for block statement.
+
 ``` html
 <% if (entries.length) { %>
   <ul>
